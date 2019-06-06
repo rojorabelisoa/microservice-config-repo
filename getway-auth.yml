@@ -1,0 +1,46 @@
+zuul:
+  routes:
+    backend-service:
+      path: /backend/**
+      serviceId: BACKEND-SERVICE
+    parcel-service:
+      path: /parcel/**
+      serviceId: parcel-service
+    opinion-service:
+      path: /opinion/**
+      serviceId: opinion-service
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+    
+app:
+  jwtExpirationInMs: 604800000
+  jwtSecret: JWTSuperSecretKey
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+server:
+  compression:
+    enabled: true
+  port: 8080
+spring:
+  datasource:
+    initialization-mode: always
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:8889/react?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    time-zone: UTC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
