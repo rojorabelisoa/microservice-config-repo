@@ -1,15 +1,3 @@
-zuul:
-  routes:
-    backend-service:
-      path: /backend/**
-      serviceId: BACKEND-SERVICE
-    parcel-service:
-      path: /parcel/**
-      serviceId: parcel-service
-    opinion-service:
-      path: /opinion/**
-      serviceId: opinion-service
-      
 eureka:
   client:
     serviceUrl:
